@@ -1,5 +1,8 @@
 package Matrimony.matrimonyart;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
@@ -106,7 +109,7 @@ public class Matches extends BaseTest
 		/////////////////////////////REFINE SEARCH START FROM HERE///////////////////////
 		//Select Age From
 		try {
-			System.out.println("------------Selecting the Options in Age From----------------");
+			System.out.println("------------Selecting the Options in Age----------------");
 			js.executeScript("window.scrollBy(0,100)");
 			try {
 				Thread.sleep(5000);
@@ -162,11 +165,12 @@ public class Matches extends BaseTest
 			} catch (Exception e) {
 				System.err.println("There is some Exception in the above Topic");
 			}
+
 		
 		//Select Height From
 		try {
 			js.executeScript("window.scrollBy(0,150)");
-			System.out.println("------------Selecting the Options in Height From----------------");
+			System.out.println("------------Selecting the Options in Height----------------");
 			Thread.sleep(5000);
 			WebElement Heightlabel = driver.findElement(By.id("facetHeightlabel"));
 			Heightlabel.click();
@@ -195,7 +199,7 @@ public class Matches extends BaseTest
 		try {
 			//Click on the Sent Mail
 			js.executeScript("window.scrollBy(0,100)");
-			System.out.println("------------Selecting the Options in Marital Status From----------------");
+			System.out.println("------------Selecting the Options in Marital Status----------------");
 			Thread.sleep(5000);
 			WebElement MaritalStatuslabel = driver.findElement(By.id("facetMaritalStatuslabel"));
 			MaritalStatuslabel.click();
@@ -215,7 +219,7 @@ public class Matches extends BaseTest
 				maritalStatus1.click();
 				Thread.sleep(2000);
 			}
-			
+			System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
 		}
@@ -228,18 +232,19 @@ public class Matches extends BaseTest
 			Thread.sleep(3000);
 			showmore.click();
 			js.executeScript("window.scrollBy(0,100)");
+			System.out.println("ShowMore is Successfully clicked");
 			} catch (Exception e) {
 					System.err.println("There is some Exception in the above Topic");
 			}
 				
-			/*	
+		
 		//////////////////////Refine SEARCH START FROM HERE///////////////////////
 		//Select Religionlabel From
 		try {
 			
 			
 			//js.executeScript("window.scrollBy(0,100)");
-			System.out.println("------------Selecting the Options in Religion ----------------");
+			System.out.println("------------Selecting the Options in Religion----------------");
 			Thread.sleep(5000);
 			WebElement Religionlabel = driver.findElement(By.id("facetReligionlabel"));
 			Religionlabel.click();
@@ -250,6 +255,7 @@ public class Matches extends BaseTest
 			WebElement religion = driver.findElement(By.id("religion"));
 			Select s = new Select(religion);
 			s.selectByValue("11");
+			System.out.println("The DropDown is successfully clicked");
 			} catch (Exception e) {
 				System.err.println("There is some Exception in the above Topic");
 			}
@@ -261,7 +267,7 @@ public class Matches extends BaseTest
 		try {
 			//Click on the Sent Mail
 			js.executeScript("window.scrollBy(0,150)");
-			System.out.println("------------Selecting the Options in Mother Tongue From----------------");
+			System.out.println("------------Selecting the Options in Mother Tongue----------------");
 			Thread.sleep(5000);
 			WebElement MotherTonguelabel = driver.findElement(By.id("facetMotherTonguelabel"));
 			MotherTonguelabel.click();
@@ -272,7 +278,7 @@ public class Matches extends BaseTest
 			
 			// Select the Mother Tongue from the DropDown
 			try {
-				System.out.println();
+				
 				System.out.println("Select the Mother Tongue from the DropDown");
 				WebElement motherTongueTemp = driver.findElement(By.id("motherTongueTemp"));
 				Thread.sleep(5000);
@@ -316,7 +322,7 @@ public class Matches extends BaseTest
 		try {
 			//Click on the Sent Mail
 			js.executeScript("window.scrollBy(0,150)");
-			System.out.println("------------Selecting the Options in Mother Tongue From----------------");
+			System.out.println("------------Selecting the Options in Caste----------------");
 			Thread.sleep(5000);
 			WebElement facetCastelabel = driver.findElement(By.id("facetCastelabel"));
 			facetCastelabel.click();
@@ -327,7 +333,7 @@ public class Matches extends BaseTest
 			
 			// Select the Mother Tongue from the DropDown
 			try {
-				System.out.println();
+				
 				System.out.println("Select the Mother Tongue from the DropDown");
 				WebElement casteTemp = driver.findElement(By.id("casteTemp"));
 				Thread.sleep(5000);
@@ -370,7 +376,7 @@ public class Matches extends BaseTest
 		try {
 			//Click on the Sent Mail
 			js.executeScript("window.scrollBy(0,150)");
-			System.out.println("------------Selecting the Options in Educational Details From----------------");
+			System.out.println("------------Selecting the Options in Educational Details----------------");
 			Thread.sleep(5000);
 			WebElement Educationlabel = driver.findElement(By.id("facetEducationlabel"));
 			Educationlabel.click();
@@ -381,7 +387,7 @@ public class Matches extends BaseTest
 					
 			// Select the Educational Details from the DropDown
 			try {
-				System.out.println();
+				
 				System.out.println("Select the Educational Details from the DropDown");
 				WebElement subeducationTemp = driver.findElement(By.id("subeducationTemp"));
 				Thread.sleep(5000);
@@ -423,7 +429,7 @@ public class Matches extends BaseTest
 			//Select Family Type From
 			try {
 				js.executeScript("window.scrollBy(0,150)");
-				System.out.println("------------Selecting the Options in Family Type From----------------");
+				System.out.println("------------Selecting the Options in Family Type----------------");
 				Thread.sleep(5000);
 				WebElement FamilyTypelabel = driver.findElement(By.id("facetFamilyTypelabel"));
 				FamilyTypelabel.click();
@@ -443,7 +449,7 @@ public class Matches extends BaseTest
 					FamilyType2.click();
 					Thread.sleep(2000);
 				}
-				
+				System.out.println("The Button is successfully clickable");
 			} catch (Exception e) {
 				System.err.println("There is some Exception in the above Topic");
 			}
@@ -471,7 +477,7 @@ public class Matches extends BaseTest
 					FamilyStatus1.click();
 					Thread.sleep(2000);
 				}
-				
+				System.out.println("The Button is successfully clickable");
 				} catch (Exception e) {
 					System.err.println("There is some Exception in the above Topic");
 				}		
@@ -499,11 +505,11 @@ public class Matches extends BaseTest
 					occupationCat7.click();
 					Thread.sleep(2000);
 				}
-				
+				System.out.println("The Button is successfully clickable");
 				} catch (Exception e) {
 					System.err.println("There is some Exception in the above Topic");
 				}	
-			
+				
 			//Select Occupation		
 			try {
 				//Click on the Sent Mail
@@ -519,7 +525,7 @@ public class Matches extends BaseTest
 						
 				// Select the Occupation from the DropDown
 				try {
-					System.out.println();
+					
 					System.out.println("Select the Occupation from the DropDown");
 					WebElement occupationTemp = driver.findElement(By.id("occupationTemp"));
 					Thread.sleep(5000);
@@ -561,7 +567,7 @@ public class Matches extends BaseTest
 			//Select Annual Income
 			try {
 				js.executeScript("window.scrollBy(0,100)");
-				System.out.println("------------Selecting the Options in Annual Income From----------------");
+				System.out.println("------------Selecting the Options in Annual Income----------------");
 				Thread.sleep(5000);
 				WebElement AnnualIncomelabel = driver.findElement(By.id("facetAnnualIncomelabel"));
 				AnnualIncomelabel.click();
@@ -589,7 +595,6 @@ public class Matches extends BaseTest
 			
 			//Select Country		
 			try {
-				//Click on the Sent Mail
 				js.executeScript("window.scrollBy(0,100)");
 				System.out.println("------------Selecting the Options in Country ----------------");
 				Thread.sleep(5000);
@@ -602,8 +607,8 @@ public class Matches extends BaseTest
 						
 		// Select the facetCountrylabel from the DropDown
 		try {
-			System.out.println();
-			System.out.println("Select the Countrylabel from the DropDown");
+			
+			System.out.println("Select the Country from the DropDown");
 			WebElement countryTemp = driver.findElement(By.id("countryTemp"));
 			Thread.sleep(5000);
 			WebElement Any = driver.findElement(By.xpath("//*[text()='"+BaseTest.getExcelsearchnep("Sheet1", 1, 8)+"']"));
@@ -646,7 +651,7 @@ public class Matches extends BaseTest
 			//Select ResidentStatuslabel
 			try {
 				js.executeScript("window.scrollBy(0,100)");
-				System.out.println("------------Selecting the Options in ResidentStatuslabel----------------");
+				System.out.println("------------Selecting the Options in Resident Status----------------");
 				Thread.sleep(5000);
 				WebElement ResidentStatuslabel = driver.findElement(By.id("facetResidentStatuslabel"));
 				ResidentStatuslabel.click();
@@ -666,6 +671,7 @@ public class Matches extends BaseTest
 					residentStatus1.click();
 					Thread.sleep(2000);
 				}
+				System.out.println("The Button is successfully clickable");
 				
 			} catch (Exception e) {
 				System.err.println("There is some Exception in the above Topic");
@@ -687,7 +693,7 @@ public class Matches extends BaseTest
 						
 		// Select the Citizenship from the DropDown
 		try {
-			System.out.println();
+			
 			System.out.println("Select the Citizenship from the DropDown");
 			WebElement citizenshipTemp = driver.findElement(By.id("citizenshipTemp"));
 			Thread.sleep(5000);
@@ -730,7 +736,7 @@ public class Matches extends BaseTest
 		//Select PhysicalStatus
 		try {
 			js.executeScript("window.scrollBy(0,100)");
-			System.out.println("------------Selecting the Options in PhysicalStatus----------------");
+			System.out.println("------------Selecting the Options in Physical Status----------------");
 			Thread.sleep(5000);
 			WebElement facetPhysicalStatuslabel = driver.findElement(By.id("facetPhysicalStatuslabel"));
 			facetPhysicalStatuslabel.click();
@@ -750,7 +756,7 @@ public class Matches extends BaseTest
 				physicalStatus0.click();
 				Thread.sleep(2000);
 			}
-			
+			System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
 		}
@@ -778,13 +784,12 @@ public class Matches extends BaseTest
 				complexion2.click();
 				Thread.sleep(2000);
 			}
-			
+			System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
-		}*/
+		}
 		
 		
-		///////////////////////////////////vijay/////////////////////////////////
 		///body type///
 		try {
 			js.executeScript("window.scrollBy(0,100)");
@@ -808,7 +813,7 @@ public class Matches extends BaseTest
 				complexion2.click();
 				Thread.sleep(2000);
 			}
-			
+			System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
 		}
@@ -820,28 +825,21 @@ public class Matches extends BaseTest
 		js.executeScript("window.scrollBy(0,100)");
 		driver.findElement(By.id("facetEatinglabel")).click();
 		Thread.sleep(5000);
-
 		driver.findElement(By.xpath("//*[@id='FMoreEating']/a")).click();
-
 		Thread.sleep(5000);
-
 		WebElement eating = driver.findElement(By.id("eating1"));
-
 		try {
-		if (eating.isSelected()) {
+		if (eating.isSelected())
+		{
 		Thread.sleep(5000);
-
 		eating.click();
 		Thread.sleep(5000);
-
 		eating.click();
-		}else if (!eating.isSelected()) {
+		}else if (!eating.isSelected()) 
+		{
 		eating.click();
-
-
-		}{
-
 		}
+		System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
 		}
@@ -852,27 +850,19 @@ public class Matches extends BaseTest
 		js.executeScript("window.scrollBy(0,100)");
 		driver.findElement(By.id("facetSmokelabel")).click();
 		Thread.sleep(5000);
-
 		driver.findElement(By.xpath("//*[@id='FMoreSmoke']/a")).click();
-
 		Thread.sleep(5000);
-
 		WebElement smoke = driver.findElement(By.id("smoking2"));
 		try {
 		if (smoke.isSelected()) {
 		Thread.sleep(5000);
-
 		smoke.click();
 		Thread.sleep(5000);
-
 		smoke.click();
 		}else if (!smoke.isSelected()) {
 		smoke.click();
-
-
-		}{
-
 		}
+		System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 		System.err.println("There is some Exception in the above Topic");
 		}
@@ -882,27 +872,19 @@ public class Matches extends BaseTest
 		js.executeScript("window.scrollBy(0,100)");
 		driver.findElement(By.id("facetDrinklabel")).click();
 		Thread.sleep(5000);
-
 		driver.findElement(By.xpath("//*[@id='FMoreDrink']/a")).click();
-
 		Thread.sleep(5000);
-
 		WebElement drink = driver.findElement(By.id("drinking1"));
 		try {
 		if (drink.isSelected()) {
 		Thread.sleep(5000);
-
 		drink.click();
 		Thread.sleep(5000);
-
 		drink.click();
 		}else if (!drink.isSelected()) {
 		drink.click();
-
-
-		}{
-
 		}
+		System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
 		}
@@ -912,33 +894,24 @@ public class Matches extends BaseTest
 		js.executeScript("window.scrollBy(0,150)");
 		driver.findElement(By.id("facetProfileCreatedBylabel")).click();
 		Thread.sleep(5000);
-
 		driver.findElement(By.xpath("//*[@id='FMoreProfileCreatedBy']/a")).click();
-
 		Thread.sleep(5000);
-
 		WebElement pcb = driver.findElement(By.id("createdBy1"));
 		try {
 		if (pcb.isSelected()) {
 		Thread.sleep(5000);
-
 		pcb.click();
 		Thread.sleep(5000);
-
 		pcb.click();
 		}else if (!pcb.isSelected()) {
 		pcb.click();
-
-
-		}{
-
 		}
+		System.out.println("The Button is successfully clickable");
 		} catch (Exception e) {
 			System.err.println("There is some Exception in the above Topic");
 		}
 			
 			
-		//////////////////////////////////vijay/////////////////////////////////		
 	}		
 			
 
