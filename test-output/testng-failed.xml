@@ -6,4 +6,14 @@
       <class name="Matrimony.matrimonyart.RequestFor"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)" parallel="none">
+    <classes>
+      <class name="Matrimony.matrimonyart.RequestFor">
+        <methods>
+          <include name="setup7"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Matrimony.matrimonyart.RequestFor -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
