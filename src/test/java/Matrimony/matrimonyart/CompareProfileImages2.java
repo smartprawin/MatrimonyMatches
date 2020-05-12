@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class CompareProfileImages extends BaseTest
+public class CompareProfileImages2 extends BaseTest
 {
 
 
@@ -83,10 +83,15 @@ public class CompareProfileImages extends BaseTest
 			}
 			
 		//Handling the Notification
-
-			Thread.sleep(5000);
-			driver.findElement(By.xpath("//*[@alt='close']")).click();
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(5000);
+				driver.findElement(By.xpath("//*[@alt='close']")).click();
+				System.out.println("The popup is Handeled successfully	");
+				Thread.sleep(2000);
+			} catch (Exception e) {
+				System.out.println("the POPup is not available");
+			}
+			
 			
 
 		//click on the MATCHES in the tab	
@@ -114,89 +119,82 @@ public class CompareProfileImages extends BaseTest
 	
 		///////////////////////////////Seleting the profile////////////////////////////
 			
-//		for (int nextPageCount = 0; nextPageCount < 2; nextPageCount++) 
-//		{
+		for (int nextPageCount = 0; nextPageCount < 2; nextPageCount++) 
+		{
 			List<WebElement> TotalAvaView = driver.findElements(By.xpath("(//div[@class='fleft padt4 mediumtxt clr5'])"));
-			System.out.println("Total Yet to viewed Profile   = "+TotalAvaView.size());
+			System.out.println("viewed Profile   = "+TotalAvaView.size());
+			int totalCount=1;
 			for (int Total = 0; Total < TotalAvaView.size()/2; Total++) 
 			{
 				System.out.println("--");
 				System.out.println("--");
 				System.out.println("--");
 				System.out.println("--------------------New Profile Starts Here----------------");
-				count=Total+1;
+				count=count+1;
 				System.out.println("Profile Count = "+count);
+				
 				Thread.sleep(5000);
-				List<WebElement> profile = driver.findElements(By.xpath("//*[text()='Profile Created for ']"));
-				profile.get(Total).click();
-				String parentwindow = driver.getWindowHandle();
+				String Name = driver.findElement(By.xpath("(//*[@class='clr9' and @target='_blank'])["+totalCount+"]")).getText();
+				System.out.println("Name of the profile "+count+" :"+Name);
+				List<WebElement> photoFrame = new ArrayList<WebElement>();
+				//System.out.println("after null");
+				int shownPages=0;
+				WebElement profile = null;
+				int photoFrameSize=0;
+				
 				try {
-					Set<String> childwindow = driver.getWindowHandles();
-					for(String wh : childwindow) 
-					{
-						if (!parentwindow.equals(wh)) 
-						{
-							driver.switchTo().window(wh);
-							System.out.println("New Window is Handeled");
-							Thread.sleep(5000);
-						}
-					}
+					photoFrame = driver.findElements(By.xpath("(//*[@class='clr7' and text()='Profile Created for '])["+totalCount+"]//parent::div//parent::div//following-sibling::div[@class='fleft padt10 ']//div[@class='fleft padr5']//img"));
+					photoFrameSize = photoFrame.size();
 				} catch (Exception e) {
-				System.out.println("Exception coz of Handling");
+					System.out.println("Not able to find any photos  -  Exception Handled");
 				}
-				Thread.sleep(20000);
-			
-				List<WebElement> content = driver.findElements(By.xpath("//*[@class='fright width405 clr7 posrelative padr8 padt10 ']"));
-			
-				for (WebElement webElement : content) {
-					System.out.println(webElement.getText());
+				try {
+					profile = driver.findElement(By.xpath("(//*[@class='clr7' and text()='Profile Created for '])["+totalCount+"]//parent::div//parent::div/following-sibling::div[@class='fleft padt10 ']//div//div//div[@class='mediumtxt txt-center']//span"));
+					String noOfPhotos = profile.getText();
+					String[] split = noOfPhotos.split(" ");
+					System.out.println("Total no. of splited words"+split.length);
+					for (int i = 0; i < split.length; i++) 
+					{
+						System.out.println("Seperated text "+i+"  =  "+split[i]);
+					}
+					shownPages = Integer.parseInt(split[split.length-1]);
+				} catch (Exception e) {
+					System.out.println("The text '1 of' is not available  -  Exception Handled");
 				}
 				
-				List<WebElement> photoFrame = driver.findElements(By.xpath("//*[@class='fleft padl8 padr8']/img"));
-			
-				if (photoFrame.size()==1) 
+				
+				System.out.println("-");
+				if(photoFrameSize==1 && shownPages==0)
 				{
-					System.out.println("ONLY ONE PHOTO IS AVAILABLE");
-					Thread.sleep(5000);
-					System.out.println(photoFrame.get(0).getAttribute("src"));
-					Thread.sleep(2000);
-					driver.close();
-					driver.switchTo().window(parentwindow);
-					Thread.sleep(2000);
-				} else if(photoFrame.size()>1) 
+					System.out.println("Total images shown is not available due to only one images is available");
+				}else if (photoFrameSize==0 && shownPages==0) 
 				{
-					
-					System.out.println(photoFrame.size());
-					for (int i = 0; i < photoFrame.size(); i++) 
-					{
-						System.out.println(photoFrame.get(i).getAttribute("src"));
-						r.keyPress(KeyEvent.VK_CONTROL);
-						r.keyPress(KeyEvent.VK_T);
-						r.keyRelease(KeyEvent.VK_CONTROL);
-						r.keyRelease(KeyEvent.VK_T);
-						String selectLinkOpeninNewTab = Keys.chord(Keys.CONTROL,"t");
-						//driver.findElement(By.linkText(photoFrame.get(i).getAttribute("src"))).sendKeys(selectLinkOpeninNewTab); 
-						
-						
-					}
-					 ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-					 System.out.println("-----------3rd window handling------------- ");
-					 driver.switchTo().window(tabs.get(0));
-					 
-	
-				}else if(photoFrame.size()==0)
+					System.out.println("No image is available");
+				}else if (shownPages==photoFrameSize) 
 				{
-					System.out.println("there is some error in the taking the photos");
-				}else if(photoFrame.size()<0)
-				{
-					System.out.println("less that 0");
+					System.out.println("Total images show in numbers and no of images available are equal");
 				}
-			
+				
+			totalCount++;
 			}	
-
+			try {
+				WebElement Next = driver.findElement(By.xpath("//*[text()='Next ']//*[text()='»']"));
+				js.executeScript("arguments[0].scrollIntoView();", Next);
+				Thread.sleep(2000);
+				Next.click();
+				Thread.sleep(10000);
+			} catch (Exception e) {
+				Thread.sleep(3000);
+				WebElement Next = driver.findElement(By.xpath("//*[text()='Next ']"));
+				js.executeScript("arguments[0].scrollIntoView();", Next);
+				Thread.sleep(1000);
+				Next.click();
+				System.out.println("Exception  in the next try");
+				Thread.sleep(10000);
+			}
 		}
 		
-	//}
+	}
 		 
 		//////////////////////////
 	

@@ -3,17 +3,7 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]" parallel="none">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="Matrimony.matrimonyart.RequestFor"/>
+      <class name="Matrimony.matrimonyart.CompareProfileImages2"/>
     </classes>
   </test> <!-- Default test -->
-  <test name="Default test(failed)" parallel="none">
-    <classes>
-      <class name="Matrimony.matrimonyart.RequestFor">
-        <methods>
-          <include name="setup7"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- Matrimony.matrimonyart.RequestFor -->
-    </classes>
-  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
