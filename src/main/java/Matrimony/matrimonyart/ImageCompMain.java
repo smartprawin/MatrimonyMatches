@@ -13,8 +13,8 @@ public class ImageCompMain {
   
         try
         { 
-            File fileA = new File("D:\\Growup\\LOGO\\SampleImage1.jpg"); 
-            File fileB = new File("D:\\Growup\\LOGO\\SampleImage3.jpg"); 
+            File fileA = new File("D:\\Growup\\LOGO\\vijay1.jpg"); 
+            File fileB = new File("D:\\Growup\\LOGO\\vijay2.jpg"); 
   
             imgA = ImageIO.read(fileA); 
             imgB = ImageIO.read(fileB); 
@@ -45,9 +45,9 @@ public class ImageCompMain {
                     int redB = (rgbB >> 16) & 0xff; 
                     int greenB = (rgbB >> 8) & 0xff; 
                     int blueB = (rgbB) & 0xff; 
-                    difference += Math.abs(redA - redB); 
-                    difference += Math.abs(greenA - greenB); 
-                    difference += Math.abs(blueA - blueB); 
+                    difference += Math.abs(redA - redB);              
+                    difference += Math.abs(greenA - greenB); 			
+                    difference += Math.abs(blueA - blueB);              
                 } 
             } 
   
