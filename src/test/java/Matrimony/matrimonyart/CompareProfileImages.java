@@ -131,6 +131,7 @@ public class CompareProfileImages extends BaseTest
 	
 		///////////////////////////////Seleting the profile////////////////////////////
 			
+		
 		for (int nextPageCount = 0; nextPageCount < 2; nextPageCount++) 
 		{
 			if (nextPageCount != 0) 

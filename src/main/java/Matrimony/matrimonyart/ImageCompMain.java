@@ -13,8 +13,8 @@ public class ImageCompMain {
   
         try
         { 
-            File fileA = new File("D:\\Growup\\LOGO\\vijay1.jpg"); 
-            File fileB = new File("D:\\Growup\\LOGO\\vijay2.jpg"); 
+            File fileA = new File("D:\\Growup\\LOGO\\TestCompress.jpg"); 
+            File fileB = new File("D:\\Growup\\LOGO\\Test.jpg"); 
   
             imgA = ImageIO.read(fileA); 
             imgB = ImageIO.read(fileB); 

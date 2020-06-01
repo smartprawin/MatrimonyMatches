@@ -207,6 +207,14 @@ public static String getExcelsearchnep(String sheetName, int rowNum, int colNum)
 	return data;
 }
 
+public static String getExcelUpgrade(String sheetName, int rowNum, int colNum) throws Throwable{
+	FileInputStream fis = new FileInputStream("D:\\Java\\Window7\\First\\matrimonyart\\Excel\\searchnep.xlsx");
+ Workbook wb = WorkbookFactory.create(fis);
+ Sheet sh = wb.getSheet(sheetName);
+ Row row = sh.getRow(rowNum);
+ String data = row.getCell(colNum).getStringCellValue();
+	return data;
+}
 
 public static int getExcelRandomRowNum(String sheetName) throws Throwable{
 	FileInputStream fis = new FileInputStream("C:\\Users\\amuthan\\eclipse-workspace\\CBS\\Excel\\SMSTEST.xlsx");
