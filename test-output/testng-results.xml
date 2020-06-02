@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59434" started-at="2020-06-01T13:20:44Z" finished-at="2020-06-01T13:21:44Z">
+  <suite name="Default suite" duration-ms="72216" started-at="2020-06-02T13:12:38Z" finished-at="2020-06-02T13:13:51Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59434" started-at="2020-06-01T13:20:44Z" finished-at="2020-06-01T13:21:44Z">
+    <test name="Default test" duration-ms="72216" started-at="2020-06-02T13:12:38Z" finished-at="2020-06-02T13:13:51Z">
       <class name="Matrimony.matrimonyart.PaymentGateway">
-        <test-method status="PASS" signature="setup()[pri:0, instance:Matrimony.matrimonyart.PaymentGateway@2ed0fbae]" name="setup" is-config="true" duration-ms="4359" started-at="2020-06-01T18:50:44Z" finished-at="2020-06-01T18:50:49Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:Matrimony.matrimonyart.PaymentGateway@2ed0fbae]" name="setup" is-config="true" duration-ms="8903" started-at="2020-06-02T18:42:38Z" finished-at="2020-06-02T18:42:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="setup6()[pri:0, instance:Matrimony.matrimonyart.PaymentGateway@2ed0fbae]" name="setup6" duration-ms="55020" started-at="2020-06-01T18:50:49Z" finished-at="2020-06-01T18:51:44Z">
+        <test-method status="PASS" signature="setup6()[pri:0, instance:Matrimony.matrimonyart.PaymentGateway@2ed0fbae]" name="setup6" duration-ms="63277" started-at="2020-06-02T18:42:47Z" finished-at="2020-06-02T18:43:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup6 -->

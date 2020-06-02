@@ -61,16 +61,16 @@ public class PaymentGateway extends BaseTest
 
 		//Open URL	
 		Thread.sleep(3000);
-		driver.get(BaseTest.getExcelsearchnep("Authenticate", 2, 3));
+		driver.get(BaseTest.getExcelsearchnep("Authenticate", 3, 3));
 		driver.manage().window().maximize();
 		
 		//Enter Username and Password from Excel
 		Thread.sleep(1000);
 		BaseTest.click(g.getMatriID());
-		BaseTest.typeData(g.getMatriID(), getExcelsearchnep("Authenticate", 2, 0));
+		BaseTest.typeData(g.getMatriID(), getExcelsearchnep("Authenticate", 3, 0));
 		Thread.sleep(1000);
 		BaseTest.click(g.getPasswordClear());
-		BaseTest.typeData(g.getPassword(), getExcelsearchnep("Authenticate", 2, 1));
+		BaseTest.typeData(g.getPassword(), getExcelsearchnep("Authenticate", 3, 1));
 		
 		//Click on the LoginButton
 		Thread.sleep(3000);
@@ -86,11 +86,18 @@ public class PaymentGateway extends BaseTest
 			
 		//Handling the Notification
 			Thread.sleep(5000);
-			Runtime.getRuntime().exec("D:\\Java\\Window7\\First\\matrimonyart\\Exe\\ClickNotification.exe");
-			Thread.sleep(5000);
+			try {
+				//Runtime.getRuntime().exec("D:\\Java\\Window7\\First\\matrimonyart\\Exe\\ClickNotification.exe");
+				driver.findElement(By.xpath("(//*[text()='Upgrade'])[1]")).click();
+				Thread.sleep(5000);
+			} catch (Exception e) {
+				System.out.println("no notification");
+			}
+			
 			
 		//click on UPgrade
 			String parent = driver.getWindowHandle();
+			Thread.sleep(3000);
 			driver.findElement(By.xpath("(//*[text()='Upgrade'])[1]")).click();
 			Set<String> child = driver.getWindowHandles();
 			for (String string : child) 
@@ -103,11 +110,20 @@ public class PaymentGateway extends BaseTest
 				}
 			}
 			
+			
+		//open regional URL
+			String URL = driver.getCurrentUrl();
+			URL=URL+BaseTest.getExcelsearchnep("Authenticate", 3, 4);
+			System.out.println(URL);
+			driver.navigate().to(URL);
+			
+			
+			
 		//To find number of rows and columns
 			FileInputStream fis = new FileInputStream("D:\\Java\\Window7\\First\\matrimonyart\\Excel\\upgrade.xlsx");
 			 Workbook wb = WorkbookFactory.create(fis);
 			 System.out.println("workbook is created");
-			 Sheet sh = wb.getSheet(getExcelsearchnep("Authenticate", 2, 2));
+			 Sheet sh = wb.getSheet(getExcelsearchnep("Authenticate", 3, 2));
 			 System.out.println("inside sheet");
 			 int rowCount = sh.getLastRowNum();
 //			 System.out.println(sh.getFirstRowNum());
@@ -117,26 +133,6 @@ public class PaymentGateway extends BaseTest
 			
 		//check the rates
 			List<WebElement> Rates = driver.findElements(By.xpath("//*[@class='boldtxt font18']"));
-//			for (int i = 0; i < Rates.size(); i++) 
-//			{
-//				//System.out.println(Rates.get(i).getText());
-//				for (int j = 0; j < rowCount; j++) 
-//				{
-//					 short columnCount = sh.getRow(j).getLastCellNum();
-//
-//					for (int k = 0; k < columnCount; k++) 
-//					{
-//						if (sh.getRow(j).getCell(k).getStringCellValue().equals(Rates.get(i).getText())) 
-//						{
-//							System.out.println(sh.getRow(j).getCell(k).getStringCellValue());
-//						}else
-//						{
-//							//System.out.println(sh.getRow(j).getCell(k).getStringCellValue());
-//							//System.out.println("else part is activated");
-//						}
-//					}
-//				}
-//			}
 			
 			if (sh.getRow(1).getCell(1).getStringCellValue().equals(Rates.get(count).getText())) 
 			{
@@ -154,7 +150,7 @@ public class PaymentGateway extends BaseTest
 				count++;
 			}else 
 			{
-				System.out.println("Test Data '"+sh.getRow(1).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
+				System.out.println("Test Data '"+sh.getRow(1).getCell(2).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
 				count++;
 			}
 			
@@ -164,7 +160,7 @@ public class PaymentGateway extends BaseTest
 				count++;
 			}else 
 			{
-				System.out.println("Test Data '"+sh.getRow(1).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
+				System.out.println("Test Data '"+sh.getRow(2).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
 				count++;
 			}
 				
@@ -174,7 +170,7 @@ public class PaymentGateway extends BaseTest
 				count++;
 			}else 
 			{
-				System.out.println("Test Data '"+sh.getRow(1).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
+				System.out.println("Test Data '"+sh.getRow(2).getCell(2).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
 				count++;
 			}
 			
@@ -184,7 +180,7 @@ public class PaymentGateway extends BaseTest
 				count++;
 			}else 
 			{
-				System.out.println("Test Data '"+sh.getRow(1).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
+				System.out.println("Test Data '"+sh.getRow(3).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
 				count++;
 			}
 			
@@ -194,7 +190,7 @@ public class PaymentGateway extends BaseTest
 				count++;
 			}else 
 			{
-				System.out.println("Test Data '"+sh.getRow(1).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
+				System.out.println("Test Data '"+sh.getRow(3).getCell(2).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
 				count++;
 			}
 			
@@ -204,7 +200,7 @@ public class PaymentGateway extends BaseTest
 				count++;
 			}else 
 			{
-				System.out.println("Test Data '"+sh.getRow(1).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
+				System.out.println("Test Data '"+sh.getRow(4).getCell(1).getStringCellValue()+"' value mismatches with the Website value'"+Rates.get(count).getText()+"'");
 				count++;
 			}
 		
