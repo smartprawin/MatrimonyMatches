@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="72216" started-at="2020-06-02T13:12:38Z" finished-at="2020-06-02T13:13:51Z">
+  <suite name="Default suite" duration-ms="111669" started-at="2020-06-06T11:08:51Z" finished-at="2020-06-06T11:10:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="72216" started-at="2020-06-02T13:12:38Z" finished-at="2020-06-02T13:13:51Z">
-      <class name="Matrimony.matrimonyart.PaymentGateway">
-        <test-method status="PASS" signature="setup()[pri:0, instance:Matrimony.matrimonyart.PaymentGateway@2ed0fbae]" name="setup" is-config="true" duration-ms="8903" started-at="2020-06-02T18:42:38Z" finished-at="2020-06-02T18:42:47Z">
+    <test name="Default test" duration-ms="111669" started-at="2020-06-06T11:08:51Z" finished-at="2020-06-06T11:10:43Z">
+      <class name="Matrimony.matrimonyart.PaymentGatewayAmoutCheck">
+        <test-method status="PASS" signature="setup()[pri:0, instance:Matrimony.matrimonyart.PaymentGatewayAmoutCheck@2ed0fbae]" name="setup" is-config="true" duration-ms="11706" started-at="2020-06-06T16:38:51Z" finished-at="2020-06-06T16:39:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="setup6()[pri:0, instance:Matrimony.matrimonyart.PaymentGateway@2ed0fbae]" name="setup6" duration-ms="63277" started-at="2020-06-02T18:42:47Z" finished-at="2020-06-02T18:43:51Z">
+        <test-method status="PASS" signature="setup6()[pri:0, instance:Matrimony.matrimonyart.PaymentGatewayAmoutCheck@2ed0fbae]" name="setup6" duration-ms="99921" started-at="2020-06-06T16:39:03Z" finished-at="2020-06-06T16:40:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup6 -->
-      </class> <!-- Matrimony.matrimonyart.PaymentGateway -->
+      </class> <!-- Matrimony.matrimonyart.PaymentGatewayAmoutCheck -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
